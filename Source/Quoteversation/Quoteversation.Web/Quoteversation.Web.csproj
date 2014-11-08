@@ -251,6 +251,10 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Quoteversation.Data.Common\Quoteversation.Data.Common.csproj">
+      <Project>{33de1a1d-a0a5-495f-bb30-92e3e9b1457f}</Project>
+      <Name>Quoteversation.Data.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Quoteversation.Data\Quoteversation.Data.csproj">
       <Project>{ab77ea67-1ad8-47d4-9f44-a421692046c7}</Project>
       <Name>Quoteversation.Data</Name>
