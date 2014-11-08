@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quoteversation.Models", "Qu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quoteversation.Data.Common", "Quoteversation.Data.Common\Quoteversation.Data.Common.csproj", "{33DE1A1D-A0A5-495F-BB30-92E3E9B1457F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quoteversation.Web.Infrastructure", "Quoteversation.Web.Infrastructure\Quoteversation.Web.Infrastructure.csproj", "{A57D6790-5D59-457D-BF04-B1F05A486353}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{33DE1A1D-A0A5-495F-BB30-92E3E9B1457F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33DE1A1D-A0A5-495F-BB30-92E3E9B1457F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33DE1A1D-A0A5-495F-BB30-92E3E9B1457F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A57D6790-5D59-457D-BF04-B1F05A486353}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A57D6790-5D59-457D-BF04-B1F05A486353}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A57D6790-5D59-457D-BF04-B1F05A486353}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A57D6790-5D59-457D-BF04-B1F05A486353}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,5 +52,6 @@ Global
 		{AB77EA67-1AD8-47D4-9F44-A421692046C7} = {6282B095-17E3-4C26-805C-F8FB45C76A78}
 		{03E7F870-61F7-461E-B8A0-F6112E9DD488} = {6282B095-17E3-4C26-805C-F8FB45C76A78}
 		{33DE1A1D-A0A5-495F-BB30-92E3E9B1457F} = {6282B095-17E3-4C26-805C-F8FB45C76A78}
+		{A57D6790-5D59-457D-BF04-B1F05A486353} = {F33A63D7-5E59-4F49-8DEA-B219515C69D8}
 	EndGlobalSection
 EndGlobal
