@@ -7,6 +7,8 @@ using Microsoft.Owin.Security.DataProtection;
 using Owin;
 using System;
 using Quoteversation.Web.Models;
+using Quoteversation.Data;
+using Quoteversation.Models;
 
 namespace Quoteversation.Web
 {

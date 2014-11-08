@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Owin;
 using Quoteversation.Web.Models;
+using Quoteversation.Models;
 
 namespace Quoteversation.Web.Controllers
 {
