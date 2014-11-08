@@ -53,8 +53,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationUser.cs" />
+    <Compile Include="Conversation.cs" />
+    <Compile Include="Like.cs" />
+    <Compile Include="PicPost.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuotePost.cs" />
     <Compile Include="Tag.cs" />
+    <Compile Include="VideoPost.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
