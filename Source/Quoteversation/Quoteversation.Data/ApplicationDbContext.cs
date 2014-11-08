@@ -11,12 +11,14 @@
 
     using Quoteversation.Data.Common.Models;
     using Quoteversation.Models;
+    using Quoteversation.Data.Migrations;
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
         }
 
         public static ApplicationDbContext Create()
