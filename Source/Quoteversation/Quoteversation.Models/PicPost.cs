@@ -12,8 +12,9 @@
             this.Likes = new HashSet<Like>();
         }
 
-        [Required]
-        public byte[] Pic { get; set; }
+        public int PicId { get; set; }
+
+        public PostContentPic Pic { get; set; }
 
         public virtual ICollection<Like> Likes { get; set; }
     }

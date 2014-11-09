@@ -12,14 +12,9 @@
             this.Likes = new HashSet<Like>();
         }
 
-        [Required]
-        public string VideoUrl { get; set; }
+        public int QuoteId { get; set; }
 
-        [MaxLength(60)]
-        public string SongTitle { get; set; }
-
-        [MaxLength(60)]
-        public string Artist { get; set; }
+        public PostContentQuote Quote { get; set; }
 
         public virtual ICollection<Like> Likes { get; set; }
     }

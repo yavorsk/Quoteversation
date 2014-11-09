@@ -1,8 +1,7 @@
-﻿using Quoteversation.Data.Common.Models;
-
-namespace Quoteversation.Models
+﻿namespace Quoteversation.Models
 {
     using System.ComponentModel.DataAnnotations;
+    using System.Collections.Generic;
 
     using Quoteversation.Data.Common.Models;
 
@@ -13,14 +12,9 @@ namespace Quoteversation.Models
             this.Likes = new HashSet<Like>();
         }
 
-        [Required]
-        public string VideoUrl { get; set; }
+        public int VideoId { get; set; }
 
-        [MaxLength(60)]
-        public string SongTitle { get; set; }
-
-        [MaxLength(60)]
-        public string Artist { get; set; }
+        public PostContentVideo Video { get; set; }
 
         public virtual ICollection<Like> Likes { get; set; }
     }
