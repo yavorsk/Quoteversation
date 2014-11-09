@@ -24,9 +24,9 @@
         [MaxLength(500)]
         public string Description { get; set; }
 
-        public virtual ApplicationUser Creator { get; set; }
-
         public string CreatorId { get; set; }
+
+        public virtual ApplicationUser Creator { get; set; }
 
         public bool AllowPicPosts { get; set; }
 
@@ -38,6 +38,7 @@
 
         public virtual ICollection<Tag> Tags { get; set; }
 
+        [Index]
         public bool IsDeleted { get; set; }
 
         public System.DateTime? DeletedOn { get; set; }

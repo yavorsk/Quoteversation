@@ -26,7 +26,19 @@
             return new ApplicationDbContext();
         }
 
+        public IDbSet<Conversation> Conversations { get; set; }
+
+        public IDbSet<Post> Posts { get; set; }
+
+        public IDbSet<PostContentPic> PostContentPics { get; set; }
+
+        public IDbSet<PostContentVideo> PostContentVideos { get; set; }
+
+        public IDbSet<PostContentQuote> PostContentQuotes { get; set; }
+
         public IDbSet<Tag> Tags { get; set; }
+
+        public IDbSet<Like> Likes { get; set; }
 
         public override int SaveChanges()
         {
