@@ -30,16 +30,19 @@
 
         public virtual ICollection<Like> Likes { get; set; }
 
-        public int PicId { get; set; }
-
-        public PostContentPic Pic { get; set; }
-
-        public int QuoteId { get; set; }
+        [ForeignKey("Quote")]
+        public int? QuoteId { get; set; }
 
         public PostContentQuote Quote { get; set; }
 
-        public int VideoId { get; set; }
+        [ForeignKey("Video")]
+        public int? VideoId { get; set; }
 
         public PostContentVideo Video { get; set; }
+
+        [ForeignKey("Pic")]
+        public int? PicId { get; set; }
+
+        public PostContentPic Pic { get; set; }
     }
 }

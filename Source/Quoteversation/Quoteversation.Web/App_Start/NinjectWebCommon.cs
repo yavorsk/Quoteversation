@@ -10,6 +10,9 @@ namespace Quoteversation.Web.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
+    using System.Data.Entity;
+    using Quoteversation.Data;
+    using Quoteversation.Data.Common.Repositories;
 
     public static class NinjectWebCommon 
     {
@@ -61,6 +64,12 @@ namespace Quoteversation.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind<DbContext>().To<ApplicationDbContext>();
+
+            kernel.Bind(typeof(IDeletableEntityRepository<>))
+                .To(typeof(DeletableEntityRepository<>));
+
+            kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
         }        
     }
 }

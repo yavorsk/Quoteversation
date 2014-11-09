@@ -5,6 +5,9 @@
 
     using Quoteversation.Data.Common.Models;
 
+    // Inheritance with EF Code First: Part 2 – Table per Type (TPT)
+    // http://weblogs.asp.net/manavi/inheritance-mapping-strategies-with-entity-framework-code-first-ctp5-part-2-table-per-type-tpt
+
     public class PostContentPic : PostContent
     {
         public PostContentPic()

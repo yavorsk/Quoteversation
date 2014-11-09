@@ -1,30 +1,29 @@
-﻿using System;
+﻿using Quoteversation.Data.Common.Repositories;
+using Quoteversation.Models;
+using Quoteversation.Web.ViewModels.Home;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AutoMapper.QueryableExtensions;
 
 namespace Quoteversation.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private IRepository<Conversation> conversations;
+
+        public HomeController(IRepository<Conversation> conversations)
+        {
+            this.conversations = conversations;
+
+        }
         public ActionResult Index()
         {
-            return View();
-        }
+            var conversations = this.conversations.All().OrderByDescending(c => c.CreatedOn).Project().To<IndexConversationViewModel>();
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return View(conversations);
         }
     }
 }
