@@ -52,7 +52,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="IQuoteversationData.cs" />
+    <Compile Include="IQuoteversationDbContext.cs" />
+    <Compile Include="QuoteversationData.cs" />
+    <Compile Include="QuoteversationDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

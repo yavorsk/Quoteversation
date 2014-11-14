@@ -7,21 +7,22 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AutoMapper.QueryableExtensions;
+using Quoteversation.Data;
 
 namespace Quoteversation.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private IRepository<Conversation> conversations;
 
-        public HomeController(IRepository<Conversation> conversations)
+        public HomeController(IQuoteversationData data)
+            : base(data)
         {
-            this.conversations = conversations;
-
         }
+
         public ActionResult Index()
         {
-            var conversations = this.conversations.All().OrderByDescending(c => c.CreatedOn).Project().To<IndexConversationViewModel>();
+            var conversations = this.Data.Conversations.All().OrderByDescending(c => c.CreatedOn).Project().To<IndexConversationViewModel>();
 
             return View(conversations);
         }

@@ -19,7 +19,7 @@ namespace Quoteversation.Web.ViewModels.Home
 
         public string Description { get; set; }
 
-        public virtual ApplicationUser Creator { get; set; }
+        public virtual User Creator { get; set; }
 
         public virtual ICollection<Post> Posts { get; set; }
 

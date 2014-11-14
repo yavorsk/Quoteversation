@@ -18,7 +18,7 @@
         [ForeignKey("Author")]
         public string AuthorId { get; set; }
 
-        public virtual ApplicationUser Author { get; set; }
+        public virtual User Author { get; set; }
 
         [Required]
         [MaxLength(100)]

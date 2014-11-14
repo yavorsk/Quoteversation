@@ -13,17 +13,17 @@
     using Quoteversation.Models;
     using Quoteversation.Data.Migrations;
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class QuoteversationDbContext : IdentityDbContext<User>, IQuoteversationDbContext
     {
-        public ApplicationDbContext()
+        public QuoteversationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<QuoteversationDbContext, Configuration>());
         }
 
-        public static ApplicationDbContext Create()
+        public static QuoteversationDbContext Create()
         {
-            return new ApplicationDbContext();
+            return new QuoteversationDbContext();
         }
 
         public IDbSet<Conversation> Conversations { get; set; }
@@ -40,10 +40,19 @@
 
         public IDbSet<Like> Likes { get; set; }
 
+        public DbContext DbContext
+        {
+            get { return this; }
+        }
+
+        public new IDbSet<T> Set<T>() where T : class
+        {
+            return base.Set<T>();
+        }
+
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();
-            this.ApplyDeletableEntityRules();
             return base.SaveChanges();
         }
 

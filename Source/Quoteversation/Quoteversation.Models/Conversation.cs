@@ -26,7 +26,7 @@
 
         public string CreatorId { get; set; }
 
-        public virtual ApplicationUser Creator { get; set; }
+        public virtual User Creator { get; set; }
 
         public bool AllowPicPosts { get; set; }
 

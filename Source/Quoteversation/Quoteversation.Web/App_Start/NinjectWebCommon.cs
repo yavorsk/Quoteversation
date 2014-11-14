@@ -64,12 +64,15 @@ namespace Quoteversation.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<DbContext>().To<ApplicationDbContext>();
+            kernel.Bind<DbContext>().To<QuoteversationDbContext>();
 
-            kernel.Bind(typeof(IDeletableEntityRepository<>))
-                .To(typeof(DeletableEntityRepository<>));
+            kernel.Bind<IQuoteversationDbContext>().To<QuoteversationDbContext>();
 
-            kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
+            //kernel.Bind(typeof(IDeletableEntityRepository<>)).To(typeof(DeletableEntityRepository<>));
+
+            //kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
+
+            kernel.Bind(typeof(IQuoteversationData)).To(typeof(QuoteversationData));
         }        
     }
 }
