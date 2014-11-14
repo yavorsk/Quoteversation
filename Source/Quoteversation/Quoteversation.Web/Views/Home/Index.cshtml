@@ -6,21 +6,35 @@
 <div class="container">
     @foreach (var conv in Model)
     {
-        <div class="row">
-            <div class="col-md-10">
+        <div class="panel panel-default">
+            <div class="panel-body">
                 <div class="row">
-                    <h4>
-                        <a href="/123/asd-asd-asd">@conv.Title</a>
-                    </h4>
-                </div>
-                <div class="row">
-                    <p>@conv.Description</p>
-                </div>
-                <div class="row">
-                    @foreach (var tag in conv.Tags)
-                    {
-                        <span class="label label-default">@tag.Name</span>
-                    }
+                    <div class="col-md-8">
+                        <div class="row">
+                            <h4>
+                                <a href="#">@conv.Title</a>
+                            </h4>
+                        </div>
+                        <div class="row">
+                            <p>@conv.Description</p>
+                        </div>
+                        <div class="row">
+                            @foreach (var tag in conv.Tags)
+                            {
+                                <span class="label label-default">@tag.Name</span>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="row">
+                            <span>Author: </span>
+                            <span>@conv.Creator.UserName</span>
+                        </div>
+                        <div class="row">
+                            <span>Number of posts: </span>
+                            <span>@conv.Posts.Count</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
