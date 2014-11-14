@@ -21,7 +21,18 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                    @if (this.User.Identity.IsAuthenticated)
+                    {
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Upload<b class="caret"></b> </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Upload Quote", "Add", "Quotes", new { area = "" }, null)</li>
+                                <li>@Html.ActionLink("Upload Image", "Add", "Images", new { area = "" }, null)</li>
+                                <li>@Html.ActionLink("Upload Video", "Add", "Videos", new { area = "" }, null)</li>
+                            </ul>
+                        </li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

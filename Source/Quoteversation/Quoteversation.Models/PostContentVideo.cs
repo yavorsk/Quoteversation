@@ -22,5 +22,9 @@
         public string Artist { get; set; }
 
         public virtual ICollection<Tag> Tags { get; set; }
+
+        public string UploaderId { get; set; }
+
+        public virtual User Uploader { get; set; }
     }
 }

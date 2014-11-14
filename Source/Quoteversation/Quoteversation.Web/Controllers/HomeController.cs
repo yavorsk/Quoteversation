@@ -13,8 +13,6 @@ namespace Quoteversation.Web.Controllers
 {
     public class HomeController : BaseController
     {
-        private IRepository<Conversation> conversations;
-
         public HomeController(IQuoteversationData data)
             : base(data)
         {

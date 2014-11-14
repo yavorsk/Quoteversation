@@ -17,6 +17,12 @@ namespace Quoteversation.Models
         {
             // This will prevent UserManager.CreateAsync from causing exception
             this.CreatedOn = DateTime.Now;
+
+            this.UploadedPics = new HashSet<PostContentPic>();
+            this.UploadedQuotes = new HashSet<PostContentQuote>();
+            this.UploadedVideos = new HashSet<PostContentVideo>();
+
+            this.CreatedConversations = new HashSet<Conversation>();
         }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
@@ -37,5 +43,13 @@ namespace Quoteversation.Models
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }
+
+        public virtual ICollection<PostContentQuote> UploadedQuotes { get; set; }
+
+        public virtual ICollection<PostContentPic> UploadedPics { get; set; }
+
+        public virtual ICollection<PostContentVideo> UploadedVideos { get; set; }
+
+        public virtual ICollection<Conversation> CreatedConversations { get; set; }
     }
 }
