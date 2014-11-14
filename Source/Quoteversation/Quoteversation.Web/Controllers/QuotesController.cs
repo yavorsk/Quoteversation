@@ -19,14 +19,14 @@
         {
         }
 
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
             var quoteViewModel = this.Data.PostContentQuotes.All().Where(q => q.Id == id)
                 .Project().To<QuoteDetailsViewModel>().FirstOrDefault();
 
             if (quoteViewModel == null)
             {
-                return this.HttpNotFound("No such post");
+                return this.HttpNotFound("No such quote.");
             }
 
             return View(quoteViewModel);
