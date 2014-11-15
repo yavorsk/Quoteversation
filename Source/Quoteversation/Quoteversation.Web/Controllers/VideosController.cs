@@ -13,6 +13,7 @@ namespace Quoteversation.Web.Controllers
     using AutoMapper.QueryableExtensions;
     using Quoteversation.Web.ViewModels.Videos;
     using System.Text.RegularExpressions;
+    using Quoteversation.Common;
 
     public class VideosController : BaseController
     {
@@ -76,21 +77,22 @@ namespace Quoteversation.Web.Controllers
                     tags.Add(currentTag);
                 }
 
-                // use regex to extract the video id
-                Regex youTubeVideoRegex = new Regex(@"youtu(?:\.be|be\.com)/(?:(.*)v(/|=)|(.*/)?)([a-zA-Z0-9-_]+)", RegexOptions.IgnoreCase);
-                Match youtubeMatch = youTubeVideoRegex.Match(inputModel.VideoUrl);
-                string id = string.Empty;
-                if (youtubeMatch.Success)
-                {
-                    id = youtubeMatch.Groups[4].Value;
-                }
-                inputModel.VideoUrl = "//www.youtube.com/embed/" + id;
+                //// use regex to extract the video id
+                //Regex youTubeVideoRegex = new Regex(@"youtu(?:\.be|be\.com)/(?:(.*)v(/|=)|(.*/)?)([a-zA-Z0-9-_]+)", RegexOptions.IgnoreCase);
+                //Match youtubeMatch = youTubeVideoRegex.Match(inputModel.VideoUrl);
+                //string id = string.Empty;
+                //if (youtubeMatch.Success)
+                //{
+                //    id = youtubeMatch.Groups[4].Value;
+                //}
+                //inputModel.VideoUrl = "//www.youtube.com/embed/" + id;
 
+                var embedUrl = YouTubeUrlHelpers.GetEmbedUrl(inputModel.VideoUrl);
 
                 var video = new PostContentVideo
                 {
                     UploaderId = userId,
-                    VideoUrl = inputModel.VideoUrl,
+                    VideoUrl = embedUrl,
                     SongTitle = inputModel.SongTitle == null ? "unknown" : inputModel.SongTitle,
                     Artist = inputModel.Artist == null ? "unknown" : inputModel.Artist,
                     Tags = tags

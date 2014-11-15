@@ -16,7 +16,10 @@
         }
 
         [Required]
-        public byte[] Picture { get; set; }
+        public byte[] PictureContent { get; set; }
+
+        [Required]
+        public string FileExtension { get; set; }
 
         public virtual ICollection<Tag> Tags { get; set; }
 

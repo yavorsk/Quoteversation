@@ -45,6 +45,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -60,6 +61,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Quoteversation.Common\Quoteversation.Common.csproj">
+      <Project>{4c1df3e8-cc4d-45e3-b51e-a9494c9998b6}</Project>
+      <Name>Quoteversation.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Quoteversation.Data.Common\Quoteversation.Data.Common.csproj">
       <Project>{33de1a1d-a0a5-495f-bb30-92e3e9b1457f}</Project>
       <Name>Quoteversation.Data.Common</Name>
@@ -72,6 +77,14 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Migrations\imgs\foundlove.jpg" />
+    <Content Include="Migrations\imgs\gollum.jpg" />
+    <Content Include="Migrations\imgs\hardwork.jpg" />
+    <Content Include="Migrations\imgs\hatework.jpg" />
+    <Content Include="Migrations\imgs\takeoffearly.jpg" />
+    <Content Include="Migrations\imgs\whatislove.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

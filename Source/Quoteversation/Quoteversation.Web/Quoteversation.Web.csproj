@@ -295,6 +295,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Quoteversation.Common\Quoteversation.Common.csproj">
+      <Project>{4c1df3e8-cc4d-45e3-b51e-a9494c9998b6}</Project>
+      <Name>Quoteversation.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Quoteversation.Data.Common\Quoteversation.Data.Common.csproj">
       <Project>{33de1a1d-a0a5-495f-bb30-92e3e9b1457f}</Project>
       <Name>Quoteversation.Data.Common</Name>
