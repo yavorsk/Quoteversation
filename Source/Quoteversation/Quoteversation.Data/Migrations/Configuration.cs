@@ -1,5 +1,7 @@
 namespace Quoteversation.Data.Migrations
 {
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using Quoteversation.Models;
     using System;
     using System.Collections.Generic;
@@ -9,6 +11,8 @@ namespace Quoteversation.Data.Migrations
 
     internal sealed class Configuration : DbMigrationsConfiguration<Quoteversation.Data.QuoteversationDbContext>
     {
+        private UserManager<User> userManager;
+
         public Configuration()
         {
             this.AutomaticMigrationsEnabled = true;
@@ -17,6 +21,10 @@ namespace Quoteversation.Data.Migrations
 
         protected override void Seed(QuoteversationDbContext context)
         {
+            this.userManager = new UserManager<User>(new UserStore<User>(context));
+            this.SeedRoles(context);
+            this.SeedUsers(context);
+
             if (context.Conversations.Any())
             {
                 return;
@@ -150,6 +158,51 @@ namespace Quoteversation.Data.Migrations
             context.PostContentQuotes.AddOrUpdate(quotes.ToArray());
             context.Posts.AddOrUpdate(posts.ToArray());
             context.Conversations.AddOrUpdate(conversations.ToArray());
+        }
+
+        private void SeedRoles(QuoteversationDbContext context)
+        {
+            context.Roles.AddOrUpdate(x => x.Name, new IdentityRole("Admin"));
+            context.SaveChanges();
+        }
+
+        private void SeedUsers(QuoteversationDbContext context)
+        {
+            if (context.Users.Any())
+            {
+                return;
+            }
+
+            var userPesho = new User
+            {
+                Email = "pesho@pesho.com",
+                UserName = "peshopesho"
+            };
+
+            var userGosho = new User
+            {
+                Email = "gosho@gosho.com",
+                UserName = "goshogosho"
+            };
+
+            var userYasho = new User
+            {
+                Email = "yasho@yasho.com",
+                UserName = "yashoyasho"
+            };
+
+            var userAdmin = new User
+            {
+                Email = "admin@admin.com",
+                UserName = "administrator"
+            };
+
+            this.userManager.Create(userPesho, "qweasd");
+            this.userManager.Create(userGosho, "qweasd");
+            this.userManager.Create(userYasho, "qweasd");
+            this.userManager.Create(userAdmin, "qweasd");
+
+            this.userManager.AddToRole(userAdmin.Id, "Admin");
         }
     }
 }
