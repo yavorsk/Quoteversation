@@ -1,4 +1,6 @@
 ﻿@model Quoteversation.Web.ViewModels.Tags.AllTagsViewModel
 
-@Html.DisplayFor(model => model.Tags)
-
+@foreach (var tag in Model.Tags)
+{
+    @Html.ActionLink(tag.Name, "ById", "Tags", new { id = tag.Id }, new { style = "color: inherit; margin: 5px", @class = "btn btn-info" })
+}

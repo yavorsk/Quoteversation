@@ -13,8 +13,14 @@
         HttpMethod = "POST"
     }, new { id = "searchForm" }))
 {
-    <input type="text" name="query" oninput="changed()" />
-    <input type="submit" />
+    <div class="row">
+        <div class="col-md-3">
+            <input type="text" name="query" oninput="changed()" class="form-inline form-control" autocomplete="off" />
+        </div>
+        <div class="col-md-4">
+            <input type="submit" value="Search" class="btn btn-default" />
+        </div>
+    </div>
 }
 <script>
     function changed() {
@@ -22,8 +28,7 @@
     }
 </script>
 
+<br />
 <div id="result-tags">
     @Html.Partial("_TagsResult", this.Model)
 </div>
-
-@*@Html.DisplayFor(model => model.Tags)*@

@@ -37,11 +37,21 @@
         {
             var result = new AllTagsViewModel();
 
-            result.Tags = this.Data.Tags
-                .All()
-                .Where(t => t.Name.ToLower().Contains(query.ToLower()))
+            if (query == string.Empty)
+            {
+                result.Tags = this.Data.Tags.All()
+                .OrderByDescending(t => t.CreatedOn)
                 .Project().To<TagViewModel>()
                 .ToList();
+            }
+            else
+            {
+                result.Tags = this.Data.Tags
+                  .All()
+                  .Where(t => t.Name.ToLower().Contains(query.ToLower()))
+                  .Project().To<TagViewModel>()
+                  .ToList();
+            }
 
             return this.PartialView("_TagsResult", result);
         }
