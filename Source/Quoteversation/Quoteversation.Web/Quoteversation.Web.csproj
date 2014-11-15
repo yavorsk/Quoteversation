@@ -196,6 +196,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\QuotesController.cs" />
+    <Compile Include="Controllers\TagsController.cs" />
     <Compile Include="Controllers\VideosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -207,6 +208,9 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Home\IndexConversationViewModel.cs" />
     <Compile Include="ViewModels\Quotes\QuoteDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Tags\AllTagsViewModel.cs" />
+    <Compile Include="ViewModels\Tags\TaggedViewModel.cs" />
+    <Compile Include="ViewModels\Tags\TagViewModel.cs" />
     <Compile Include="ViewModels\Videos\VideoDetailsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -273,6 +277,13 @@
     <Content Include="Views\Quotes\Details.cshtml" />
     <Content Include="Views\Videos\Add.cshtml" />
     <Content Include="Views\Videos\Details.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Tag.cshtml" />
+    <Content Include="Views\Tags\ById.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\QuoteDetailsViewModel.cshtml" />
+    <Content Include="Views\Tags\All.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\TagViewModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\VideoDetailsViewModel.cshtml" />
+    <Content Include="Views\Shared\_TagsResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

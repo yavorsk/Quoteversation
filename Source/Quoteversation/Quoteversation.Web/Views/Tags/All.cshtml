@@ -1,0 +1,29 @@
+﻿@model Quoteversation.Web.ViewModels.Tags.AllTagsViewModel
+@{
+    ViewBag.Title = "All";
+}
+
+<h2>All tags</h2>
+
+@using (Ajax.BeginForm("Search", null,
+    new AjaxOptions
+    {
+        UpdateTargetId = "result-tags",
+        InsertionMode = InsertionMode.Replace,
+        HttpMethod = "POST"
+    }, new { id = "searchForm" }))
+{
+    <input type="text" name="query" oninput="changed()" />
+    <input type="submit" />
+}
+<script>
+    function changed() {
+        $("#searchForm").submit();
+    }
+</script>
+
+<div id="result-tags">
+    @Html.Partial("_TagsResult", this.Model)
+</div>
+
+@*@Html.DisplayFor(model => model.Tags)*@

@@ -1,0 +1,42 @@
+﻿@model Quoteversation.Web.ViewModels.Tags.TaggedViewModel
+@{
+    ViewBag.Title = "TagById";
+}
+
+<h2>Tagged with "@this.Model.Tag.Name"</h2>
+
+
+<div class="row">
+    <div class="row">
+        <div class="col-md-4 text-center">
+            <h3>Quotes: </h3>
+        </div>
+        <div class="col-md-4 text-center">
+            <h3>Videos: </h3>
+        </div>
+        <div class="col-md-4 text-center">
+            <h3>Images: </h3>
+        </div>
+    </div>
+    <div class="row">
+        @if (Model.Quotes.Any())
+        {
+            <div class="col-md-4">@Html.DisplayFor(taggedModel => taggedModel.Quotes)</div>
+        }
+        else
+        {
+            <div class="col-md-4 text-center">No quotes with this tag</div>
+        }
+        @if (Model.Videos.Any())
+        {
+            <div class="col-md-4">@Html.DisplayFor(taggedModel => taggedModel.Videos)</div>
+        }
+        else
+        {
+            <div class="col-md-4 text-center">No videos with this tag</div>
+        }
+        <div class="col-md-4">No images</div>
+    </div>
+</div>
+
+

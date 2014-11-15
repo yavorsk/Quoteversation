@@ -1,0 +1,21 @@
+﻿@model Quoteversation.Web.ViewModels.Quotes.QuoteDetailsViewModel
+
+<div class="panel panel-default panel-primary">
+    <div class="panel-body">
+        <p>@this.Model.QuoteText</p>
+        <span class="pull-right">Author: @this.Model.QuoteAuthor</span>
+    </div>
+    <div class="panel-footer">
+        <p>
+            @Html.DisplayFor(itemModel => itemModel.Tags)
+        </p>
+        @if (@Model.Uploader != null)
+        {
+            <p>Uplodaer: @this.Model.Uploader.UserName</p>
+        }
+        else
+        {
+            <p>Uplodaer: Administrator</p>
+        }
+    </div>
+</div>

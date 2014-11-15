@@ -9,6 +9,8 @@
 
     public class VideoDetailsViewModel : IMapFrom<PostContentVideo>
     {
+        public int Id { get; set; }
+
         public string VideoUrl { get; set; }
 
         public string SongTitle { get; set; }

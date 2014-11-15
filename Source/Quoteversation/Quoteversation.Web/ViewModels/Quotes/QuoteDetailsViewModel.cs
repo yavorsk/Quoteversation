@@ -9,6 +9,8 @@
 
     public class QuoteDetailsViewModel : IMapFrom<PostContentQuote>
     {
+        public int Id { get; set; }
+
         public string QuoteText { get; set; }
 
         public string QuoteAuthor { get; set; }

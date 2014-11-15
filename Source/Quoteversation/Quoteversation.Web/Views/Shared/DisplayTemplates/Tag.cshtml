@@ -1,0 +1,4 @@
+﻿@model Quoteversation.Models.Tag
+<span class="label label-default">
+    @Html.ActionLink(@Model.Name, "ById", "Tags", new { id = @Model.Id }, new { style = "color: inherit" })
+</span>

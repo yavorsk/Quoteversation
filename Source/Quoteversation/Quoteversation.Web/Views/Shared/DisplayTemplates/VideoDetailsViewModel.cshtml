@@ -1,0 +1,25 @@
+﻿@model Quoteversation.Web.ViewModels.Videos.VideoDetailsViewModel
+
+<div class="panel panel-default panel-primary">
+    <div class="panel-body">
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="@this.Model.VideoUrl"></iframe>
+        </div>
+        <br />
+        <p class="text-right"><i>Song title:</i> <strong>@this.Model.SongTitle</strong></p>
+        <p class="text-right"><i>Artist:</i> <strong>@this.Model.Artist</strong></p>
+    </div>
+    <div class="panel-footer">
+        <p>
+            @Html.DisplayFor(itemModel => itemModel.Tags)
+        </p>
+        @if (@Model.Uploader != null)
+        {
+            <p>Uplodaer: @this.Model.Uploader.UserName</p>
+        }
+        else
+        {
+            <p>Uplodaer: Administrator</p>
+        }
+    </div>
+</div>
