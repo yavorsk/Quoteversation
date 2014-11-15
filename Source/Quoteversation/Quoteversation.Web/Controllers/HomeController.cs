@@ -24,5 +24,10 @@ namespace Quoteversation.Web.Controllers
 
             return View(conversations);
         }
+
+        public ActionResult Error()
+        {
+            return View();
+        }
     }
 }
