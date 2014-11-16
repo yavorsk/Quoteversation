@@ -13,7 +13,6 @@
         public Post()
         {
             this.Likes = new HashSet<Like>();
-            this.Conversations = new HashSet<Conversation>();
         }
 
         [ForeignKey("Author")]
@@ -31,7 +30,9 @@
 
         public virtual ICollection<Like> Likes { get; set; }
 
-        public virtual ICollection<Conversation> Conversations { get; set; }
+        public int ConversationId { get; set; }
+
+        public virtual Conversation Conversation { get; set; }
 
         [ForeignKey("Quote")]
         public int? QuoteId { get; set; }

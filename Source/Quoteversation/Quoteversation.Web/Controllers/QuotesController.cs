@@ -22,7 +22,13 @@
         [HttpGet]
         public ActionResult All()
         {
+            var model = new AllQuotesViewModel();
 
+            model.Quotes = this.Data.PostContentQuotes.All()
+                .Project().To<QuoteDetailsViewModel>()
+                .ToList();
+
+            return View(model);
         }
 
         public ActionResult Details(int? id)

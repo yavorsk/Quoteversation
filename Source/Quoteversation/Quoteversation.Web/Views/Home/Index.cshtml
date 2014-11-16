@@ -12,17 +12,14 @@
                     <div class="col-md-8">
                         <div class="row">
                             <h4>
-                                <a href="#">@conv.Title</a>
+                                @Html.ActionLink(@conv.Title, "ById", "Conversations", new { id = @conv.Id }, null)
                             </h4>
                         </div>
                         <div class="row">
                             <p>@conv.Description</p>
                         </div>
                         <div class="row">
-                            @foreach (var tag in conv.Tags)
-                            {
-                                <span class="label label-default">@tag.Name</span>
-                            }
+                            @Html.DisplayFor(m => conv.Tags)
                         </div>
                     </div>
                     <div class="col-md-4">

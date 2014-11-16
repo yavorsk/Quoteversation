@@ -1,0 +1,31 @@
+﻿@model Quoteversation.Web.ViewModels.Posts.PostViewModel
+@{
+    ViewBag.Title = "_LikesCount";
+}
+
+<div class="well text-center"><h2>@this.Model.LikesCount</h2></div>
+
+    @if (Model.Liked)
+    {
+        <div class="row text-center">
+            <strong class="text-success">You have liked this post</strong>
+            <br />
+        </div>
+    }
+    else
+    {
+        using (Ajax.BeginForm("Like", null,
+        new AjaxOptions
+        {
+            UpdateTargetId = "likes-count-" + Model.Id,
+            InsertionMode = InsertionMode.ReplaceWith,
+            HttpMethod = "POST"
+        }, new { id = "like-form" }))
+        {
+            <div class="row text-center">
+                <input type="hidden" value="@Model.Id" name="postId" />
+                <input type="submit" value="Like" class="btn btn-success" />
+                <br />
+            </div>
+        }
+    }

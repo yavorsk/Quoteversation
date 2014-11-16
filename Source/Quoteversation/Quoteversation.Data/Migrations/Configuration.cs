@@ -61,7 +61,7 @@ namespace Quoteversation.Data.Migrations
             {
                 Title = this.random.RandomString(6, 25),
                 Author = users[this.random.RandomNumber(0, users.Count-2)],
-                Conversations = new List<Conversation> { conversations[this.random.RandomNumber(0, conversations.Count - 2)] },
+                Conversation = conversations[this.random.RandomNumber(0, conversations.Count - 2)],
                 Quote = quotes[this.random.RandomNumber(0, quotes.Count - 2)],
                 Pic = null,
                 Video = null
@@ -70,7 +70,7 @@ namespace Quoteversation.Data.Migrations
             {
                 Title = this.random.RandomString(6, 25),
                 Author = users[this.random.RandomNumber(0, users.Count - 2)],
-                Conversations = new List<Conversation> { conversations[this.random.RandomNumber(0, conversations.Count - 2)] },
+                Conversation = conversations[this.random.RandomNumber(0, conversations.Count - 2)],
                 Quote = quotes[this.random.RandomNumber(0, quotes.Count - 2)],
                 Pic = null,
                 Video = null
@@ -79,7 +79,7 @@ namespace Quoteversation.Data.Migrations
             {
                 Title = this.random.RandomString(6, 25),
                 Author = users[this.random.RandomNumber(0, users.Count - 2)],
-                Conversations = new List<Conversation> { conversations[this.random.RandomNumber(0, conversations.Count - 2)] },
+                Conversation = conversations[this.random.RandomNumber(0, conversations.Count - 2)],
                 Quote = quotes[this.random.RandomNumber(0, quotes.Count - 2)],
                 Pic = null,
                 Video = null
@@ -88,7 +88,7 @@ namespace Quoteversation.Data.Migrations
             {
                 Title = this.random.RandomString(6, 25),
                 Author = users[this.random.RandomNumber(0, users.Count - 2)],
-                Conversations = new List<Conversation> { conversations[this.random.RandomNumber(0, conversations.Count - 2)] },
+                Conversation = conversations[this.random.RandomNumber(0, conversations.Count - 2)],
                 Quote = quotes[this.random.RandomNumber(0, quotes.Count - 2)],
                 Pic = null,
                 Video = null
@@ -97,7 +97,7 @@ namespace Quoteversation.Data.Migrations
             {
                 Title = this.random.RandomString(6, 25),
                 Author = users[this.random.RandomNumber(0, users.Count - 2)],
-                Conversations = new List<Conversation> { conversations[this.random.RandomNumber(0, conversations.Count - 2)] },
+                Conversation = conversations[this.random.RandomNumber(0, conversations.Count - 2)],
                 Quote = quotes[this.random.RandomNumber(0, quotes.Count - 2)],
                 Pic = null,
                 Video = null
@@ -106,7 +106,7 @@ namespace Quoteversation.Data.Migrations
             {
                 Title = this.random.RandomString(6, 25),
                 Author = users[this.random.RandomNumber(0, users.Count - 2)],
-                Conversations = new List<Conversation> { conversations[this.random.RandomNumber(0, conversations.Count - 2)] },
+                Conversation = conversations[this.random.RandomNumber(0, conversations.Count - 2)],
                 Quote = null,
                 Pic = pics[this.random.RandomNumber(0, pics.Count - 2)],
                 Video = null
@@ -115,7 +115,7 @@ namespace Quoteversation.Data.Migrations
             {
                 Title = this.random.RandomString(6, 25),
                 Author = users[this.random.RandomNumber(0, users.Count - 2)],
-                Conversations = new List<Conversation> { conversations[this.random.RandomNumber(0, conversations.Count - 2)] },
+                Conversation = conversations[this.random.RandomNumber(0, conversations.Count - 2)],
                 Quote = null,
                 Pic = pics[this.random.RandomNumber(0, pics.Count - 2)],
                 Video = null
@@ -124,7 +124,7 @@ namespace Quoteversation.Data.Migrations
             {
                 Title = this.random.RandomString(6, 25),
                 Author = users[this.random.RandomNumber(0, users.Count - 2)],
-                Conversations = new List<Conversation> { conversations[this.random.RandomNumber(0, conversations.Count - 2)] },
+                Conversation = conversations[this.random.RandomNumber(0, conversations.Count - 2)],
                 Quote = null,
                 Pic = pics[this.random.RandomNumber(0, pics.Count - 2)],
                 Video = null
@@ -133,7 +133,7 @@ namespace Quoteversation.Data.Migrations
             {
                 Title = this.random.RandomString(6, 25),
                 Author = users[this.random.RandomNumber(0, users.Count - 2)],
-                Conversations = new List<Conversation> { conversations[this.random.RandomNumber(0, conversations.Count - 2)] },
+                Conversation = conversations[this.random.RandomNumber(0, conversations.Count - 2)],
                 Quote = null,
                 Pic = pics[this.random.RandomNumber(0, pics.Count - 2)],
                 Video = null
@@ -142,7 +142,7 @@ namespace Quoteversation.Data.Migrations
             {
                 Title = this.random.RandomString(6, 25),
                 Author = users[this.random.RandomNumber(0, users.Count - 2)],
-                Conversations = new List<Conversation> { conversations[this.random.RandomNumber(0, conversations.Count - 2)] },
+                Conversation = conversations[this.random.RandomNumber(0, conversations.Count - 2)],
                 Quote = null,
                 Pic = null,
                 Video = videos[this.random.RandomNumber(0, videos.Count - 2)]
@@ -151,7 +151,7 @@ namespace Quoteversation.Data.Migrations
             {
                 Title = this.random.RandomString(6, 25),
                 Author = users[this.random.RandomNumber(0, users.Count - 2)],
-                Conversations = new List<Conversation> { conversations[this.random.RandomNumber(0, conversations.Count - 2)] },
+                Conversation = conversations[this.random.RandomNumber(0, conversations.Count - 2)],
                 Quote = null,
                 Pic = null,
                 Video = videos[this.random.RandomNumber(0, videos.Count - 2)]
@@ -160,7 +160,7 @@ namespace Quoteversation.Data.Migrations
             {
                 Title = this.random.RandomString(6, 25),
                 Author = users[this.random.RandomNumber(0, users.Count - 2)],
-                Conversations = new List<Conversation> { conversations[this.random.RandomNumber(0, conversations.Count - 2)] },
+                Conversation = conversations[this.random.RandomNumber(0, conversations.Count - 2)],
                 Quote = null,
                 Pic = null,
                 Video = videos[this.random.RandomNumber(0, videos.Count - 2)]
@@ -169,7 +169,7 @@ namespace Quoteversation.Data.Migrations
             {
                 Title = this.random.RandomString(6, 25),
                 Author = users[this.random.RandomNumber(0, users.Count - 2)],
-                Conversations = new List<Conversation> { conversations[this.random.RandomNumber(0, conversations.Count - 2)] },
+                Conversation = conversations[this.random.RandomNumber(0, conversations.Count - 2)],
                 Quote = null,
                 Pic = null,
                 Video = videos[this.random.RandomNumber(0, videos.Count - 2)]
@@ -178,7 +178,7 @@ namespace Quoteversation.Data.Migrations
             {
                 Title = this.random.RandomString(6, 25),
                 Author = users[this.random.RandomNumber(0, users.Count - 2)],
-                Conversations = new List<Conversation> { conversations[this.random.RandomNumber(0, conversations.Count - 2)] },
+                Conversation = conversations[this.random.RandomNumber(0, conversations.Count - 2)],
                 Quote = null,
                 Pic = null,
                 Video = videos[this.random.RandomNumber(0, videos.Count - 2)]
@@ -187,7 +187,7 @@ namespace Quoteversation.Data.Migrations
             {
                 Title = this.random.RandomString(6, 25),
                 Author = users[this.random.RandomNumber(0, users.Count - 2)],
-                Conversations = new List<Conversation> { conversations[this.random.RandomNumber(0, conversations.Count - 2)] },
+                Conversation = conversations[this.random.RandomNumber(0, conversations.Count - 2)],
                 Quote = null,
                 Pic = null,
                 Video = videos[this.random.RandomNumber(0, videos.Count - 2)]
