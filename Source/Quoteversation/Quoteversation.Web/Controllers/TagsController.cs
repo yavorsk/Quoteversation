@@ -12,6 +12,7 @@
     using AutoMapper.QueryableExtensions;
     using Quoteversation.Web.ViewModels.Videos;
     using Quoteversation.Web.ViewModels.Quotes;
+    using Quoteversation.Web.ViewModels.Images;
 
     public class TagsController : BaseController
     {
@@ -94,6 +95,22 @@
                 .Where(q => quotesForTagId.Contains(q.Id))
                 .OrderByDescending(q => q.CreatedOn)
                 .Project().To<QuoteDetailsViewModel>()
+                .ToList();
+
+            var imagesForTagId = this.Data.PostContentPics.All()
+                .Select(i => new
+                {
+                    imageId = i.Id,
+                    tagIds = i.Tags.Select(t => t.Id)
+                })
+                .Where(i => i.tagIds.Contains(id))
+                .Select(i => i.imageId)
+                .ToList();
+
+            model.Images = this.Data.PostContentPics.All()
+                .Where(i => imagesForTagId.Contains(i.Id))
+                .OrderByDescending(i => i.CreatedOn)
+                .Project().To<ImageDetailsViewModel>()
                 .ToList();
 
             return View(model);

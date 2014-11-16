@@ -1,0 +1,29 @@
+﻿@model Quoteversation.Web.ViewModels.Images.ImageDetailsViewModel
+@{
+    ViewBag.Title = "Image Details";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default panel-primary">
+            <div class="panel-body">
+                <img src="@Url.Action("GetImage", "Images", new { id = Model.Id })" class="img-responsive" />
+            </div>
+            <div class="panel-footer">
+                <p>
+                    @Html.DisplayFor(itemModel => itemModel.Tags)
+                </p>
+                @if (@Model.Uploader != null)
+                {
+                    <p>Uplodaer: @this.Model.Uploader.UserName</p>
+                }
+                else
+                {
+                    <p>Uplodaer: Administrator</p>
+                }
+            </div>
+        </div>
+    </div>
+</div>

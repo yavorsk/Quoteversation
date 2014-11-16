@@ -19,6 +19,12 @@
         {
         }
 
+        [HttpGet]
+        public ActionResult All()
+        {
+
+        }
+
         public ActionResult Details(int? id)
         {
             var quoteViewModel = this.Data.PostContentQuotes.All().Where(q => q.Id == id)

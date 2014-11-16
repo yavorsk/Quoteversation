@@ -35,7 +35,14 @@
         {
             <div class="col-md-4 text-center">No videos with this tag</div>
         }
-        <div class="col-md-4">No images</div>
+        @if (Model.Images.Any())
+        {
+            <div class="col-md-4">@Html.DisplayFor(taggedModel => taggedModel.Images)</div>
+        }
+        else
+        {
+            <div class="col-md-4 text-center">No images with this tag</div>
+        }
     </div>
 </div>
 

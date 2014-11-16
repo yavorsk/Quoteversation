@@ -1,5 +1,4 @@
-﻿
-namespace Quoteversation.Web.Controllers
+﻿namespace Quoteversation.Web.Controllers
 {
     using Quoteversation.Data;
     using Quoteversation.Web.InputModels.Videos;

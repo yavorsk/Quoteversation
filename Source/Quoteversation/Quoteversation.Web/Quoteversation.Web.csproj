@@ -195,18 +195,21 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImagesController.cs" />
     <Compile Include="Controllers\QuotesController.cs" />
     <Compile Include="Controllers\TagsController.cs" />
     <Compile Include="Controllers\VideosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="InputModels\Images\ImageInputModel.cs" />
     <Compile Include="InputModels\Quotes\QuoteInputModel.cs" />
     <Compile Include="InputModels\Videos\VideoInputModel.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Home\IndexConversationViewModel.cs" />
+    <Compile Include="ViewModels\Images\ImageDetailsViewModel.cs" />
     <Compile Include="ViewModels\Quotes\QuoteDetailsViewModel.cs" />
     <Compile Include="ViewModels\Tags\AllTagsViewModel.cs" />
     <Compile Include="ViewModels\Tags\TaggedViewModel.cs" />
@@ -286,6 +289,9 @@
     <Content Include="Views\Shared\DisplayTemplates\TagViewModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\VideoDetailsViewModel.cshtml" />
     <Content Include="Views\Shared\_TagsResult.cshtml" />
+    <Content Include="Views\Images\Add.cshtml" />
+    <Content Include="Views\Images\Details.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ImageDetailsViewModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
