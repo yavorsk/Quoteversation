@@ -22,7 +22,7 @@
         }
 
         [HttpGet]
-        public ActionResult All()
+        public ActionResult All(int? convId)
         {
             var model = new AllTagsViewModel();
 
@@ -30,6 +30,8 @@
                 .OrderByDescending(t => t.CreatedOn)
                 .Project().To<TagViewModel>()
                 .ToList();
+
+            ViewBag.ConvId = convId;
 
             return View(model);
         }
@@ -59,8 +61,10 @@
 
         [HttpGet]
         [Authorize]
-        public ActionResult ById(int id)
+        public ActionResult ById(int id, int? convId)
         {
+            ViewBag.convId = convId;
+
             var model = new TaggedViewModel();
 
             model.Tag = this.Data.Tags.GetById(id);

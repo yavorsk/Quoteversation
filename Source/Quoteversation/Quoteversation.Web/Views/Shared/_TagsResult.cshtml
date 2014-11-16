@@ -2,5 +2,5 @@
 
 @foreach (var tag in Model.Tags)
 {
-    @Html.ActionLink(tag.Name, "ById", "Tags", new { id = tag.Id }, new { style = "color: inherit; margin: 5px", @class = "btn btn-info" })
+    @Html.ActionLink(tag.Name, "ById", "Tags", new { id = tag.Id, convId = ViewData["convId"] }, new { style = "color: inherit; margin: 5px", @class = "btn btn-info" })
 }

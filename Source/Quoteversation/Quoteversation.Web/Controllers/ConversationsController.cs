@@ -14,6 +14,7 @@
     using Quoteversation.Web.ViewModels.Videos;
     using Quoteversation.Web.ViewModels.Quotes;
     using Quoteversation.Models;
+    using Quoteversation.Web.InputModels.Post;
 
     public class ConversationsController : BaseController
     {
@@ -35,7 +36,7 @@
 
             var postsForConversation = this.Data.Posts.All()
                 .Where(p => p.ConversationId == id)
-                .OrderByDescending(p => p.CreatedOn)
+                .OrderBy(p => p.CreatedOn)
                 .Project().To<PostViewModel>()
                 .ToList();
 
@@ -80,6 +81,47 @@
             conversationModel.Posts = postsForConversation;
 
             return View(conversationModel);
+        }
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult AddPost(int convId, int contentId, string contentType)
+        {
+            var model = new PostInputModel();
+
+            ViewBag.ConvId = convId;
+            ViewBag.ContentId = contentId;
+            ViewBag.ContentType = contentType;
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddPost(PostInputModel inputModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var userId = this.User.Identity.GetUserId();
+
+                var post = new Post
+                {
+                    AuthorId = userId,
+                    ConversationId = inputModel.ConversationId,
+                    PicId = inputModel.PicId,
+                    QuoteId = inputModel.QuoteId,
+                    Title = inputModel.Title,
+                    VideoId = inputModel.VideoId
+                };
+
+                this.Data.Posts.Add(post);
+                this.Data.SaveChanges();
+
+                return this.RedirectToAction("ById", new { id = inputModel.ConversationId });
+            }
+
+            return this.View(inputModel);
         }
 
         public ActionResult Like(int postId)

@@ -17,5 +17,11 @@
         {
             <p>Uplodaer: Administrator</p>
         }
+        <div class="text-center">
+            @if (this.ViewData["convId"] != null)
+            {
+                @Html.ActionLink("Add to post", "AddPost", "Conversations", new { convId = this.ViewData["convId"], contentId = Model.Id, contentType = "quote" }, new { @class = "btn btn-default" })
+            }
+        </div>
     </div>
 </div>

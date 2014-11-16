@@ -204,6 +204,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="InputModels\Images\ImageInputModel.cs" />
+    <Compile Include="InputModels\Post\PostInputModel.cs" />
     <Compile Include="InputModels\Quotes\QuoteInputModel.cs" />
     <Compile Include="InputModels\Videos\VideoInputModel.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -299,6 +300,7 @@
     <Content Include="Views\Quotes\All.cshtml" />
     <Content Include="Views\Conversations\ById.cshtml" />
     <Content Include="Views\Shared\_LikesCount.cshtml" />
+    <Content Include="Views\Conversations\AddPost.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

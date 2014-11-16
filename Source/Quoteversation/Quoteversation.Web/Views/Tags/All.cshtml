@@ -5,6 +5,8 @@
 
 <h2>All tags</h2>
 
+<h2></h2>
+
 @using (Ajax.BeginForm("Search", null,
     new AjaxOptions
     {
@@ -30,5 +32,5 @@
 
 <br />
 <div id="result-tags">
-    @Html.Partial("_TagsResult", this.Model)
+    @Html.Partial("_TagsResult", this.Model, new ViewDataDictionary { { "convId", ViewBag.ConvId } } )
 </div>

@@ -5,7 +5,6 @@
 
 <h2>Tagged with "@this.Model.Tag.Name"</h2>
 
-
 <div class="row">
     <div class="row">
         <div class="col-md-4 text-center">
@@ -21,7 +20,7 @@
     <div class="row">
         @if (Model.Quotes.Any())
         {
-            <div class="col-md-4">@Html.DisplayFor(taggedModel => taggedModel.Quotes)</div>
+            <div class="col-md-4">@Html.DisplayFor(taggedModel => taggedModel.Quotes, new { convId = ViewBag.convId})</div>
         }
         else
         {
@@ -29,7 +28,7 @@
         }
         @if (Model.Videos.Any())
         {
-            <div class="col-md-4">@Html.DisplayFor(taggedModel => taggedModel.Videos)</div>
+            <div class="col-md-4">@Html.DisplayFor(taggedModel => taggedModel.Videos, new { convId = ViewBag.convId })</div>
         }
         else
         {
@@ -37,7 +36,7 @@
         }
         @if (Model.Images.Any())
         {
-            <div class="col-md-4">@Html.DisplayFor(taggedModel => taggedModel.Images)</div>
+            <div class="col-md-4">@Html.DisplayFor(taggedModel => taggedModel.Images, new { convId = ViewBag.convId })</div>
         }
         else
         {
