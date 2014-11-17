@@ -29,6 +29,7 @@ namespace Quoteversation.Web
                         "~/Content/kendo/kendo.black.min.css"));
 
             bundles.Add(new StyleBundle("~/Content/custom").Include(
+                      "~/Content/bootstrap-theme.css",
                       "~/Content/site.css"));
         }
 

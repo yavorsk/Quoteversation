@@ -6,35 +6,32 @@
 <div class="container">
     @foreach (var conv in Model)
     {
-        <div class="panel panel-default">
+        <div class="panel panel-default col-md-8">
             <div class="panel-body">
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="row">
-                            <h4>
-                                @Html.ActionLink(@conv.Title, "ById", "Conversations", new { id = @conv.Id }, null)
-                            </h4>
-                        </div>
-                        <div class="row">
-                            <p>@conv.Description</p>
-                        </div>
-                        <div class="row">
-                            @Html.DisplayFor(m => conv.Tags)
-                        </div>
+                <div class="well">
+                    <h4>
+                        @Html.ActionLink(@conv.Title, "ById", "Conversations", new { id = @conv.Id }, null)
+                    </h4>
+                </div>
+                <div class="col-md-9">
+                    <div>
+                        <p>@conv.Description</p>
                     </div>
-                    <div class="col-md-4">
-                        <div class="row">
-                            <span>Author: </span>
-                            <span>@conv.Creator.Email</span>
-                        </div>
-                        <div class="row">
-                            <span>Number of posts: </span>
-                            <span>@conv.Posts.Count</span>
-                        </div>
+                    <div>
+                        @Html.DisplayFor(m => conv.Tags)
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="row">
+                        <span>Author: </span>
+                        <span>@conv.Creator.UserName</span>
+                    </div>
+                    <div class="row">
+                        <span>Number of posts: </span>
+                        <span>@conv.Posts.Count</span>
                     </div>
                 </div>
             </div>
         </div>
-        <hr />
     }
 </div>

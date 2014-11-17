@@ -1,0 +1,44 @@
+﻿@model Quoteversation.Web.InputModels.Conversations.ConversationInputModel
+@{
+    ViewBag.Title = "Add Conversation";
+}
+
+<h2>Add</h2>
+
+@using (Html.BeginForm("Add", "Conversations", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+
+    <div class="form-group">
+        <div class="row">
+            @Html.LabelFor(model => model.Title, new { @class = "col-md-2 control-label text-right" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title, new { placeholder = "converstaion title..." })
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="row">
+            @Html.LabelFor(model => model.Description, new { @class = "col-md-2 control-label text-right" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Description, "StringTextArea", new { placeholder = "description..." })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            @Html.LabelFor(model => model.Tags, new { @class = "col-md-2 control-label text-right" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Tags, new { placeholder = "tags, separated by whitespace" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group text-center">
+        <input type="submit" value="Add Conversation" class="btn btn-primary btn-lg" />
+    </div>
+}

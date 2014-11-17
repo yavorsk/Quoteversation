@@ -1,6 +1,5 @@
 ﻿namespace Quoteversation.Web.Controllers
 {
-    using Quoteversation.Data;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -8,6 +7,8 @@
     using System.Web.Mvc;
     using AutoMapper.QueryableExtensions;
     using Microsoft.AspNet.Identity;
+
+    using Quoteversation.Data;
     using Quoteversation.Web.ViewModels.Conversations;
     using Quoteversation.Web.ViewModels.Posts;
     using Quoteversation.Web.ViewModels.Images;
@@ -15,12 +16,69 @@
     using Quoteversation.Web.ViewModels.Quotes;
     using Quoteversation.Models;
     using Quoteversation.Web.InputModels.Post;
+    using Quoteversation.Web.InputModels.Conversations;
 
     public class ConversationsController : BaseController
     {
         public ConversationsController(IQuoteversationData data)
             : base(data)
         {
+        }
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult Add()
+        {
+            var model = new ConversationInputModel();
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public ActionResult Add(ConversationInputModel inputModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var userId = this.User.Identity.GetUserId();
+
+                var inputTags = inputModel.Tags.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+                List<Tag> tags = new List<Tag>();
+
+                var tagsFromDb = this.Data.Tags.All();
+
+                foreach (var inputTagName in inputTags)
+                {
+                    Tag currentTag = tagsFromDb.FirstOrDefault(t => t.Name == inputTagName);
+
+                    if (currentTag == null)
+                    {
+                        currentTag = new Tag
+                        {
+                            Name = inputTagName
+                        };
+                    }
+
+                    tags.Add(currentTag);
+                }
+
+                var conversation = new Conversation
+                {
+                    CreatorId = userId,
+                    Description = inputModel.Description,
+                    Title = inputModel.Title,
+                    Tags = tags
+                };
+
+                this.Data.Conversations.Add(conversation);
+                this.Data.SaveChanges();
+
+                return this.RedirectToAction("ById", new { id = conversation.Id });
+            }
+
+            return this.View(inputModel);
         }
 
         [HttpGet]
