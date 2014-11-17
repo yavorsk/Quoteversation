@@ -10,6 +10,9 @@
     @Styles.Render("~/Content/kendo")
     @RenderSection("styles", required: false)
     @Styles.Render("~/Content/custom")
+    <link href="~/Content/kendo/kendo.black.min.css" rel="stylesheet" />
+    <link href="~/Content/kendo/kendo.common-bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/kendo/kendo.common.min.css" rel="stylesheet" />
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -36,6 +39,10 @@
                             </ul>
                         </li>
                         <li>@Html.ActionLink("All tags", "All", "Tags", new { area = "" }, null)</li>
+                        //if (User.IsInRole("Admin"))
+                        //{
+                            <li>@Html.ActionLink("Administration", "Index", "QuotesAdmin", new { area = "Administration" }, null)</li>
+                        //}
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")

@@ -1,0 +1,45 @@
+﻿@using Quoteversation.Web.Areas.Administration.ViewModels;
+@{
+    const string ControllerName = "QuotesAdmin";
+    ViewBag.Title = ControllerName;
+}
+
+<h2>Quotes</h2>
+
+@(Html.Kendo()
+    .Grid<PostQuoteViewModel>()
+    .Name("grid")
+    .Columns(cols =>
+    {
+        cols.Bound(pr => pr.Id);
+        cols.Bound(pr => pr.IsApproved);
+        cols.Bound(pr => pr.IsDeleted);
+        cols.Bound(pr => pr.ModifiedOn);
+        cols.Bound(pr => pr.UploaderName);
+        cols.Bound(pr => pr.QuoteText);
+        cols.Bound(pr => pr.QuoteAuthor);
+        cols.Command(com => com.Edit()).Title("Edit");
+        cols.Command(com => com.Destroy()).Title("Delete");
+    })
+    .ColumnMenu()
+    .Pageable(page => page.Refresh(true))
+    .Sortable()
+    .Editable(edit => edit.Mode(GridEditMode.PopUp))
+    .ToolBar(toolbar => toolbar.Create())
+    .DataSource(data =>
+        data
+            .Ajax()
+            .Model(m => m.Id(q => q.Id))
+            .Read(read => read.Action("Read", ControllerName))
+            .Create(create => create.Action("Create", ControllerName))
+            .Update(update => update.Action("Update", ControllerName))
+            .Destroy(destroy => destroy.Action("Destroy", ControllerName))
+            ))
+
+@*@using TicketingSystem.Web.Areas.Administration.ViewModel.Categories;
+@{
+    const string ControllerName = "Categories";
+    ViewBag.Title = ControllerName;
+}
+<h2>@ViewBag.Title</h2>
+@(Html.FullFeaturedGrid<CategoryViewModel>(ControllerName, m => m.Id))*@
