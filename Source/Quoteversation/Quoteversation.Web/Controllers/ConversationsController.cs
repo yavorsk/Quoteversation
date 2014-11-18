@@ -98,7 +98,6 @@
                 .Project().To<PostViewModel>()
                 .ToList();
 
-
             foreach (var post in postsForConversation)
             {
                 post.Liked = this.Data.Likes.All()

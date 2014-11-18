@@ -1,7 +1,5 @@
 ﻿namespace Quoteversation.Web.Controllers
 {
-    using Quoteversation.Data;
-    using Quoteversation.Web.InputModels.Quotes;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -11,6 +9,9 @@
     using Quoteversation.Models;
     using AutoMapper.QueryableExtensions;
     using Quoteversation.Web.ViewModels.Quotes;
+
+    using Quoteversation.Data;
+    using Quoteversation.Web.InputModels.Quotes;
 
     public class QuotesController : BaseController
     {

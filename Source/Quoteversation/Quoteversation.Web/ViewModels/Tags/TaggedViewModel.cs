@@ -8,12 +8,12 @@
 
     public class TaggedViewModel
     {
-        public Tag Tag;
+        public Tag Tag { get; set; }
 
-        public IEnumerable<QuoteDetailsViewModel> Quotes;
+        public IEnumerable<QuoteDetailsViewModel> Quotes { get; set; }
 
-        public IEnumerable<VideoDetailsViewModel> Videos;
+        public IEnumerable<VideoDetailsViewModel> Videos { get; set; }
 
-        public IEnumerable<ImageDetailsViewModel> Images;
+        public IEnumerable<ImageDetailsViewModel> Images { get; set; }
     }
 }

@@ -1,14 +1,15 @@
-﻿using Quoteversation.Data.Common.Models;
-using Quoteversation.Data.Common.Repositories;
-using Quoteversation.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Quoteversation.Data
+﻿namespace Quoteversation.Data
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    using Quoteversation.Data.Common.Models;
+    using Quoteversation.Data.Common.Repositories;
+    using Quoteversation.Models;
+
     public class QuoteversationData : IQuoteversationData
     {
         private readonly IQuoteversationDbContext context;

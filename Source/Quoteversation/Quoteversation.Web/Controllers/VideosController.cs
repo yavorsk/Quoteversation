@@ -1,18 +1,21 @@
 ﻿namespace Quoteversation.Web.Controllers
 {
-    using Quoteversation.Data;
-    using Quoteversation.Web.InputModels.Videos;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web;
     using System.Web.Mvc;
-    using Microsoft.AspNet.Identity;
-    using Quoteversation.Models;
-    using AutoMapper.QueryableExtensions;
-    using Quoteversation.Web.ViewModels.Videos;
     using System.Text.RegularExpressions;
+
+    using Microsoft.AspNet.Identity;
+
+    using AutoMapper.QueryableExtensions;
+
+    using Quoteversation.Web.ViewModels.Videos;
+    using Quoteversation.Models;
     using Quoteversation.Common;
+    using Quoteversation.Data;
+    using Quoteversation.Web.InputModels.Videos;
 
     public class VideosController : BaseController
     {

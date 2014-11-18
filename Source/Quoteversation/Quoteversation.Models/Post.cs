@@ -1,19 +1,20 @@
 ﻿namespace Quoteversation.Models
 {
-    using Quoteversation.Data.Common.Models;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
+    using Quoteversation.Data.Common.Models;
+
     public class Post : AuditInfo, IDeletableEntity
     {
-        [Key]
-        public int Id { get; set; }
-
         public Post()
         {
             this.Likes = new HashSet<Like>();
         }
+
+        [Key]
+        public int Id { get; set; }
 
         [ForeignKey("Author")]
         public string AuthorId { get; set; }

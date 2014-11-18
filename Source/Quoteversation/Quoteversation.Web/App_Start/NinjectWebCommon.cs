@@ -5,12 +5,13 @@ namespace Quoteversation.Web.App_Start
 {
     using System;
     using System.Web;
+    using System.Data.Entity;
 
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
     using Ninject;
     using Ninject.Web.Common;
-    using System.Data.Entity;
+
     using Quoteversation.Data;
     using Quoteversation.Data.Common.Repositories;
 

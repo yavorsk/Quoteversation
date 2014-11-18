@@ -1,12 +1,13 @@
-﻿using Quoteversation.Models;
-using Quoteversation.Web.Infrastructure.Mapping;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Quoteversation.Web.ViewModels.Home
+﻿namespace Quoteversation.Web.ViewModels.Home
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
+
+    using Quoteversation.Models;
+    using Quoteversation.Web.Infrastructure.Mapping;
+
     public class IndexConversationViewModel : IMapFrom<Conversation>
     {
         public IndexConversationViewModel()

@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Quoteversation.Web.ViewModels.Home.IndexConversationViewModel>
+
+<div class="container">
+    @foreach (var conv in Model)
+    {
+        <div class="panel panel-default col-md-8">
+            <div class="panel-body">
+                <div class="well">
+                    <h4>
+                        @Html.ActionLink(@conv.Title, "ById", "Conversations", new { id = @conv.Id }, null)
+                    </h4>
+                </div>
+                <div class="col-md-9">
+                    <div>
+                        <p>@conv.Description</p>
+                    </div>
+                    <div>
+                        @Html.DisplayFor(m => conv.Tags)
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="row">
+                        <span>Author: </span>
+                        <span>@conv.Creator.UserName</span>
+                    </div>
+                    <div class="row">
+                        <span>Number of posts: </span>
+                        <span>@conv.Posts.Count</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

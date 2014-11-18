@@ -1,5 +1,4 @@
-﻿
-namespace Quoteversation.Common
+﻿namespace Quoteversation.Common
 {
     using System;
     using System.Collections.Generic;
@@ -7,6 +6,7 @@ namespace Quoteversation.Common
     using System.Text;
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
+
     public static class YouTubeUrlHelpers
     {
         public static string GetEmbedUrl(string watchUrl)
@@ -18,6 +18,7 @@ namespace Quoteversation.Common
             {
                 id = youtubeMatch.Groups[4].Value;
             }
+
             return "//www.youtube.com/embed/" + id;
         }
     }

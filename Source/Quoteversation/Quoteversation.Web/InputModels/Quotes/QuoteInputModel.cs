@@ -1,8 +1,9 @@
 ﻿namespace Quoteversation.Web.InputModels.Quotes
 {
-    using Quoteversation.Models;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+
+    using Quoteversation.Models;
 
     public class QuoteInputModel
     {

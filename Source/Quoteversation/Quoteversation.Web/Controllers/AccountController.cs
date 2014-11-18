@@ -1,20 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
-using Owin;
-using Quoteversation.Web.Models;
-using Quoteversation.Models;
-
-namespace Quoteversation.Web.Controllers
+﻿namespace Quoteversation.Web.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Security.Claims;
+    using System.Threading.Tasks;
+    using System.Web;
+    using System.Web.Mvc;
+
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using Microsoft.AspNet.Identity.Owin;
+    using Microsoft.Owin.Security;
+
+    using Owin;
+    using Quoteversation.Web.Models;
+    using Quoteversation.Models;
+
     [Authorize]
     public class AccountController : Controller
     {
@@ -40,7 +42,6 @@ namespace Quoteversation.Web.Controllers
             }
         }
 
-        //
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
@@ -49,7 +50,6 @@ namespace Quoteversation.Web.Controllers
             return View();
         }
 
-        //
         // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
@@ -74,7 +74,6 @@ namespace Quoteversation.Web.Controllers
             return View(model);
         }
 
-        //
         // GET: /Account/Register
         [AllowAnonymous]
         public ActionResult Register()
@@ -82,7 +81,6 @@ namespace Quoteversation.Web.Controllers
             return View();
         }
 
-        //
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
@@ -115,7 +113,6 @@ namespace Quoteversation.Web.Controllers
             return View(model);
         }
 
-        //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
@@ -137,7 +134,6 @@ namespace Quoteversation.Web.Controllers
             }
         }
 
-        //
         // GET: /Account/ForgotPassword
         [AllowAnonymous]
         public ActionResult ForgotPassword()
@@ -145,7 +141,6 @@ namespace Quoteversation.Web.Controllers
             return View();
         }
 
-        //
         // POST: /Account/ForgotPassword
         [HttpPost]
         [AllowAnonymous]
@@ -173,15 +168,13 @@ namespace Quoteversation.Web.Controllers
             return View(model);
         }
 
-        //
         // GET: /Account/ForgotPasswordConfirmation
         [AllowAnonymous]
         public ActionResult ForgotPasswordConfirmation()
         {
             return View();
         }
-	
-        //
+
         // GET: /Account/ResetPassword
         [AllowAnonymous]
         public ActionResult ResetPassword(string code)
@@ -190,10 +183,10 @@ namespace Quoteversation.Web.Controllers
             {
                 return View("Error");
             }
+
             return View();
         }
 
-        //
         // POST: /Account/ResetPassword
         [HttpPost]
         [AllowAnonymous]
@@ -208,6 +201,7 @@ namespace Quoteversation.Web.Controllers
                     ModelState.AddModelError("", "No user found.");
                     return View();
                 }
+
                 IdentityResult result = await UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
                 if (result.Succeeded)
                 {
@@ -224,7 +218,6 @@ namespace Quoteversation.Web.Controllers
             return View(model);
         }
 
-        //
         // GET: /Account/ResetPasswordConfirmation
         [AllowAnonymous]
         public ActionResult ResetPasswordConfirmation()
@@ -232,7 +225,6 @@ namespace Quoteversation.Web.Controllers
             return View();
         }
 
-        //
         // POST: /Account/Disassociate
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -250,10 +242,10 @@ namespace Quoteversation.Web.Controllers
             {
                 message = ManageMessageId.Error;
             }
+
             return RedirectToAction("Manage", new { Message = message });
         }
 
-        //
         // GET: /Account/Manage
         public ActionResult Manage(ManageMessageId? message)
         {
@@ -268,7 +260,6 @@ namespace Quoteversation.Web.Controllers
             return View();
         }
 
-        //
         // POST: /Account/Manage
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -321,7 +312,6 @@ namespace Quoteversation.Web.Controllers
             return View(model);
         }
 
-        //
         // POST: /Account/ExternalLogin
         [HttpPost]
         [AllowAnonymous]
@@ -332,7 +322,6 @@ namespace Quoteversation.Web.Controllers
             return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
         }
 
-        //
         // GET: /Account/ExternalLoginCallback
         [AllowAnonymous]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
@@ -359,7 +348,6 @@ namespace Quoteversation.Web.Controllers
             }
         }
 
-        //
         // POST: /Account/LinkLogin
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -369,7 +357,6 @@ namespace Quoteversation.Web.Controllers
             return new ChallengeResult(provider, Url.Action("LinkLoginCallback", "Account"), User.Identity.GetUserId());
         }
 
-        //
         // GET: /Account/LinkLoginCallback
         public async Task<ActionResult> LinkLoginCallback()
         {
@@ -378,15 +365,16 @@ namespace Quoteversation.Web.Controllers
             {
                 return RedirectToAction("Manage", new { Message = ManageMessageId.Error });
             }
+
             IdentityResult result = await UserManager.AddLoginAsync(User.Identity.GetUserId(), loginInfo.Login);
             if (result.Succeeded)
             {
                 return RedirectToAction("Manage");
             }
+
             return RedirectToAction("Manage", new { Message = ManageMessageId.Error });
         }
 
-        //
         // POST: /Account/ExternalLoginConfirmation
         [HttpPost]
         [AllowAnonymous]
@@ -431,7 +419,6 @@ namespace Quoteversation.Web.Controllers
             return View(model);
         }
 
-        //
         // POST: /Account/LogOff
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -441,7 +428,6 @@ namespace Quoteversation.Web.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        //
         // GET: /Account/ExternalLoginFailure
         [AllowAnonymous]
         public ActionResult ExternalLoginFailure()
@@ -542,7 +528,9 @@ namespace Quoteversation.Web.Controllers
             }
 
             public string LoginProvider { get; set; }
+
             public string RedirectUri { get; set; }
+
             public string UserId { get; set; }
 
             public override void ExecuteResult(ControllerContext context)

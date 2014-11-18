@@ -1,5 +1,4 @@
-﻿
-namespace Quoteversation.Data.Common.Models
+﻿namespace Quoteversation.Data.Common.Models
 {
     using System;
     using System.ComponentModel.DataAnnotations;

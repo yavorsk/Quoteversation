@@ -1,17 +1,20 @@
 ﻿namespace Quoteversation.Web.Controllers
 {
-    using Quoteversation.Data;
-    using Quoteversation.Models;
-    using Quoteversation.Web.InputModels.Images;
-    using Quoteversation.Web.ViewModels.Images;
     using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     using System.Web;
     using System.Web.Mvc;
+
     using Microsoft.AspNet.Identity;
+
     using AutoMapper.QueryableExtensions;
+
+    using Quoteversation.Data;
+    using Quoteversation.Models;
+    using Quoteversation.Web.InputModels.Images;
+    using Quoteversation.Web.ViewModels.Images;
 
     public class ImagesController : BaseController
     {

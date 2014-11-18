@@ -1,7 +1,7 @@
-﻿using System.Web.Mvc;
-
-namespace Quoteversation.Web.Areas.Administration
+﻿namespace Quoteversation.Web.Areas.Administration
 {
+    using System.Web.Mvc;
+
     public class AdministrationAreaRegistration : AreaRegistration 
     {
         public override string AreaName 
@@ -17,8 +17,7 @@ namespace Quoteversation.Web.Areas.Administration
             context.MapRoute(
                 "Administration_default",
                 "Administration/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
-            );
+                new { action = "Index", id = UrlParameter.Optional });
         }
     }
 }

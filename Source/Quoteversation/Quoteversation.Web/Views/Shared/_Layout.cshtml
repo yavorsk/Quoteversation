@@ -40,10 +40,10 @@
                         </li>
                         <li>@Html.ActionLink("All tags", "All", "Tags", new { area = "" }, null)</li>
                         <li>@Html.ActionLink("Create conversation", "Add", "Conversations", new { area = "" }, null)</li>
-                        //if (User.IsInRole("Admin"))
-                        //{
+                        if (User.IsInRole("Admin"))
+                        {
                             <li>@Html.ActionLink("Administration", "Index", "QuotesAdmin", new { area = "Administration" }, null)</li>
-                        //}
+                        }
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -54,7 +54,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Quoteversation - ASP.NET MVC Course project </p>
         </footer>
     </div>
     <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>

@@ -1,6 +1,5 @@
 ﻿namespace Quoteversation.Data
 {
-    using Microsoft.AspNet.Identity.EntityFramework;
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
@@ -8,6 +7,8 @@
     using System.Text;
     using System.Threading.Tasks;
     using System.Linq;
+
+    using Microsoft.AspNet.Identity.EntityFramework;
 
     using Quoteversation.Data.Common.Models;
     using Quoteversation.Models;
@@ -19,11 +20,6 @@
             : base("DefaultConnection", throwIfV1Schema: false)
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<QuoteversationDbContext, Configuration>());
-        }
-
-        public static QuoteversationDbContext Create()
-        {
-            return new QuoteversationDbContext();
         }
 
         public IDbSet<Conversation> Conversations { get; set; }
@@ -43,6 +39,11 @@
         public DbContext DbContext
         {
             get { return this; }
+        }
+
+        public static QuoteversationDbContext Create()
+        {
+            return new QuoteversationDbContext();
         }
 
         public new IDbSet<T> Set<T>() where T : class

@@ -17,7 +17,6 @@
     using Model = Quoteversation.Models.PostContentQuote;
     using ViewModel = Quoteversation.Web.Areas.Administration.ViewModels.PostQuoteViewModel;
 
-
     public class QuotesAdminController : KendoGridAdministrationController
     {
          public QuotesAdminController(IQuoteversationData data)

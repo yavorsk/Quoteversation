@@ -3,35 +3,8 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="container">
-    @foreach (var conv in Model)
-    {
-        <div class="panel panel-default col-md-8">
-            <div class="panel-body">
-                <div class="well">
-                    <h4>
-                        @Html.ActionLink(@conv.Title, "ById", "Conversations", new { id = @conv.Id }, null)
-                    </h4>
-                </div>
-                <div class="col-md-9">
-                    <div>
-                        <p>@conv.Description</p>
-                    </div>
-                    <div>
-                        @Html.DisplayFor(m => conv.Tags)
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="row">
-                        <span>Author: </span>
-                        <span>@conv.Creator.UserName</span>
-                    </div>
-                    <div class="row">
-                        <span>Number of posts: </span>
-                        <span>@conv.Posts.Count</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    }
-</div>
+<h2>Welocome to <em><strong>Quoteversation!</strong></em></h2>
+<br />
+<br />
+<h3><em>Most recent conversations:</em></h3>
+@Html.Action("CachedConversations")

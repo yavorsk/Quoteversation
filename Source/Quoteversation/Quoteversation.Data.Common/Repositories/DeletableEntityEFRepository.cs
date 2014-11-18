@@ -1,11 +1,11 @@
 ﻿namespace Quoteversation.Data.Common.Repositories
 {
     using System.Linq;
-
-    using Quoteversation.Data.Common.Models;
     using System.Data.Entity;
     using System;
     using System.Data.Entity.Infrastructure;
+
+    using Quoteversation.Data.Common.Models;
 
     public class DeletableEntityRepository<T> : GenericRepository<T>, IDeletableEntityRepository<T>
         where T : class, IDeletableEntity

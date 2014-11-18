@@ -10,7 +10,6 @@
     using System.Linq;
     using System.Web;
 
-
     public class PostViewModel : IMapFrom<Post>, IHaveCustomMappings
     {
         public int Id { get; set; }

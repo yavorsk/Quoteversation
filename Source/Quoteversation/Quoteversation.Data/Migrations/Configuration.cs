@@ -1,8 +1,5 @@
 namespace Quoteversation.Data.Migrations
 {
-    using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Identity.EntityFramework;
-    using Quoteversation.Models;
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
@@ -11,6 +8,11 @@ namespace Quoteversation.Data.Migrations
     using System.Reflection;
     using System.IO;
     using Quoteversation.Common;
+
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+
+    using Quoteversation.Models;
 
     internal sealed class Configuration : DbMigrationsConfiguration<Quoteversation.Data.QuoteversationDbContext>
     {
@@ -60,7 +62,7 @@ namespace Quoteversation.Data.Migrations
             posts.Add(new Post
             {
                 Title = this.random.RandomString(6, 25),
-                Author = users[this.random.RandomNumber(0, users.Count-2)],
+                Author = users[this.random.RandomNumber(0, users.Count - 2)],
                 Conversation = conversations[this.random.RandomNumber(0, conversations.Count - 2)],
                 Quote = quotes[this.random.RandomNumber(0, quotes.Count - 2)],
                 Pic = null,
@@ -212,7 +214,7 @@ namespace Quoteversation.Data.Migrations
             {
                 Title = "First Random Conversaton",
                 Tags = new List<Tag> { tags[this.random.RandomNumber(0, tags.Count - 2)], tags[this.random.RandomNumber(0, tags.Count - 2)], tags[this.random.RandomNumber(0, tags.Count - 2)] },
-                Description = "Some thoughts on mondays",
+                Description = this.random.RandomString(6, 30),
                 AllowPicPosts = true,
                 AllowQuotePosts = true,
                 AllowVideoPosts = true,
@@ -223,7 +225,7 @@ namespace Quoteversation.Data.Migrations
             {
                 Title = "Second Random Conversaton",
                 Tags = new List<Tag> { tags[this.random.RandomNumber(0, tags.Count - 2)], tags[this.random.RandomNumber(0, tags.Count - 2)], tags[this.random.RandomNumber(0, tags.Count - 2)] },
-                Description = "Some thoughts on mondays",
+                Description = this.random.RandomString(6, 30),
                 AllowPicPosts = true,
                 AllowQuotePosts = true,
                 AllowVideoPosts = true,
@@ -234,7 +236,7 @@ namespace Quoteversation.Data.Migrations
             {
                 Title = "Third Random Conversaton",
                 Tags = new List<Tag> { tags[this.random.RandomNumber(0, tags.Count - 2)], tags[this.random.RandomNumber(0, tags.Count - 2)], tags[this.random.RandomNumber(0, tags.Count - 2)] },
-                Description = "Some thoughts on mondays",
+                Description = this.random.RandomString(6, 30),
                 AllowPicPosts = true,
                 AllowQuotePosts = true,
                 AllowVideoPosts = true,
@@ -245,7 +247,7 @@ namespace Quoteversation.Data.Migrations
             {
                 Title = "Fourth Random Conversaton",
                 Tags = new List<Tag> { tags[this.random.RandomNumber(0, tags.Count - 2)], tags[this.random.RandomNumber(0, tags.Count - 2)], tags[this.random.RandomNumber(0, tags.Count - 2)] },
-                Description = "Some thoughts on mondays",
+                Description = this.random.RandomString(6, 30),
                 AllowPicPosts = true,
                 AllowQuotePosts = true,
                 AllowVideoPosts = true,
@@ -281,7 +283,7 @@ namespace Quoteversation.Data.Migrations
                 Artist = "Laurent Wolf",
                 SongTitle = "No Stress",
                 Tags = new List<Tag> { tags.Where(t => t.Name == "Work").FirstOrDefault() },
-                Uploader =  users[1],
+                Uploader = users[1],
                 VideoUrl = YouTubeUrlHelpers.GetEmbedUrl("https://www.youtube.com/watch?v=bVRnMrl2oj8")
             });
             videos.Add(new PostContentVideo
